@@ -31,7 +31,7 @@ class AquariumTest {
 
     @Test
     void testGetStatusWithEmptyAquarium() {
-        assertEquals(0, new Aquarium().getStatus().size());
+        assertEquals(0, new Aquarium().getFishes().size());
     }
 
     @Test
@@ -39,7 +39,7 @@ class AquariumTest {
         Clownfish otherClownfish = new Clownfish("Nemo2", 5, "orange-white");
         aquarium.addFish(otherClownfish);
 
-        assertEquals(4, aquarium.getStatus().size());
+        assertEquals(4, aquarium.getFishes().size());
     }
 
     @Test
@@ -55,33 +55,33 @@ class AquariumTest {
 
     @Test
     void testGetStatusWithThreeFish() {
-        assertEquals(3, aquarium.getStatus().size());
-        assertEquals("Nemo, weight: 5, color: orange-white, short-term memory loss: false", aquarium.getStatus().get(0));
-        assertEquals("Dory, weight: 6, color: blue, short-term memory loss: true", aquarium.getStatus().get(1));
-        assertEquals("Kong, weight: 10, color: black, short-term memory loss: false", aquarium.getStatus().get(2));
+        assertEquals(3, aquarium.getFishes().size());
+        assertEquals("Nemo, weight: 5, color: orange-white, short-term memory loss: false", aquarium.getFishes().get(0));
+        assertEquals("Dory, weight: 6, color: blue, short-term memory loss: true", aquarium.getFishes().get(1));
+        assertEquals("Kong, weight: 10, color: black, short-term memory loss: false", aquarium.getFishes().get(2));
     }
 
     @Test
     void testRemoveFishDontHaveBiggerFishThanParameter() {
         aquarium.removeFish(11);
 
-        assertEquals(3, aquarium.getStatus().size());
+        assertEquals(3, aquarium.getFishes().size());
     }
 
     @Test
     void testRemoveFish() {
         aquarium.removeFish(9);
 
-        assertEquals(2, aquarium.getStatus().size());
+        assertEquals(2, aquarium.getFishes().size());
     }
 
     @Test
     void testFeed() {
         aquarium.feed();
 
-        assertEquals("Nemo, weight: 6, color: orange-white, short-term memory loss: false", aquarium.getStatus().get(0));
-        assertEquals("Dory, weight: 7, color: blue, short-term memory loss: true", aquarium.getStatus().get(1));
-        assertEquals("Kong, weight: 12, color: black, short-term memory loss: false", aquarium.getStatus().get(2));
+        assertEquals("Nemo, weight: 6, color: orange-white, short-term memory loss: false", aquarium.getFishes().get(0));
+        assertEquals("Dory, weight: 7, color: blue, short-term memory loss: true", aquarium.getFishes().get(1));
+        assertEquals("Kong, weight: 12, color: black, short-term memory loss: false", aquarium.getFishes().get(2));
     }
 
     @Test
