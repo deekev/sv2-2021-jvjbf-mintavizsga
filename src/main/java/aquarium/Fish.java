@@ -1,11 +1,10 @@
 package aquarium;
 
-public class Fish {
+public abstract class Fish {
 
     private String name;
-    private int weight;
+    protected int weight;
     private String color;
-    private boolean memoryLoss;
 
     public Fish(String name, int weight, String color) {
         this.name = name;
@@ -25,22 +24,14 @@ public class Fish {
         return color;
     }
 
-    public void setMemoryLoss(boolean memoryLoss) {
-        this.memoryLoss = memoryLoss;
-    }
+    public abstract boolean hasMemoryLoss();
 
-    public boolean hasMemoryLoss() {
-        return memoryLoss;
-    }
+    public abstract void feed();
 
     public String getStatus() {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(", weight: ").append(weight).append(", color: ")
-                .append(color).append(", short-term memory loss: ").append(memoryLoss);
+                .append(color).append(", short-term memory loss: ").append(hasMemoryLoss());
         return sb.toString();
-    }
-
-    public void feed() {
-        weight += 1;
     }
 }

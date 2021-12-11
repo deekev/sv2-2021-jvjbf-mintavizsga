@@ -15,8 +15,8 @@ public class Aquarium {
         fishes.add(fish);
     }
 
-    public List<String> getFishes() {
-        return getStatus();
+    public List<Fish> getFishes() {
+        return fishes;
     }
 
     public void feed() {

@@ -4,6 +4,15 @@ public class Clownfish extends Fish {
 
     public Clownfish(String name, int weight, String color) {
         super(name, weight, color);
-        setMemoryLoss(false);
+    }
+
+    @Override
+    public boolean hasMemoryLoss() {
+        return false;
+    }
+
+    @Override
+    public void feed() {
+        weight += 1;
     }
 }
